@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Complete nutrition guide: deep science + food lists for every age & lifestyle">
+    <meta name="keywords" content="vitamins, minerals, foods, nutrients, health, age-specific nutrition">
+    <meta name="author" content="Nutrition Guide">
+    <title>Complete Nutrition Guide | Deep Science & Food Lists</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www*w3*org/2000/svg' viewBox='0 0 100 100'><text y='90' font-size='90'>🥗</text></svg>">
+    <style>
+        :root {
+            --primary:#2c3e50; --secondary:#3498db; --accent:#e74c3c;
+            --bg:#f8f9fa; --text:#2c3e50; --card:#fff; --shadow:0 4px 6px rgba(0,0,0,.1);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+        body{background:var(--bg);color:var(--text);scroll-behavior:smooth}
+        header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:2rem 0;text-align:center}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        body{padding-top:92px}
+        nav{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:var(--shadow);z-index:100;padding:1rem;min-height:60px}
+        nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem 1.5rem;list-style:none;padding:.5rem 0}
+        nav a{color:var(--text);text-decoration:none;padding:.5rem 1rem;border-radius:25px;transition:.3s;flex-shrink:0;white-space:nowrap}
+        nav a:hover,nav a.active{background:var(--secondary);color:#fff;transform:translateY(-2px)}
+        .search-box{position:sticky;top:92px;background:#fff;padding:1rem;margin:1rem 0;border-radius:10px;box-shadow:var(--shadow);z-index:99}
+        .search-input{width:100%;padding:.8rem;border:2px solid #ddd;border-radius:25px;outline:none}
+        .search-input:focus{border-color:var(--secondary)}
+        .category{margin:3rem 0;padding:2rem;background:var(--card);border-radius:15px;box-shadow:var(--shadow)}
+        .category-header{display:flex;align-items:center;cursor:pointer;margin-bottom:1.5rem}
+        .category-icon{font-size:2.5rem;margin-right:1rem}
+        .expand-btn{background:none;border:none;font-size:1.5rem;margin-left:auto;transition:.3s}
+        .expand-btn.rotated{transform:rotate(180deg)} .hidden{display:none}
+        .nutrient-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:1rem}
+        .nutrient-card{background:linear-gradient(135deg,#f5f7fa,#c3cfe2);padding:1.5rem;border-radius:10px;cursor:pointer;transition:.3s}
+        .nutrient-card:hover{transform:scale(1.03);box-shadow:0 8px 15px rgba(0,0,0,.15)}
+        .nutrient-name{font-size:1.3rem;font-weight:700;color:var(--primary);margin-bottom:.5rem}
+        .nutrient-desc{color:#444;margin-bottom:1rem;line-height:1.5}
+        .food-list{display:flex;flex-wrap:wrap;gap:.5rem}
+        .food-item{background:#fff;padding:.4rem .8rem;border-radius:20px;font-size:.9rem;transition:.3s}
+        .food-item:hover{background:var(--secondary);color:#fff}
+        .food-item::before{content:attr(data-emoji);margin-right:.4rem}
+        footer{background:linear-gradient(135deg,var(--primary),#1a252f);color:#fff;padding:3rem 0 1rem;margin-top:4rem}
+        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+        .footer-section h3{color:var(--secondary);margin-bottom:1rem}
+        .footer-section a{color:#fff;text-decoration:none}
+        .footer-section a:hover{color:var(--secondary)}
+        .social-links{display:flex;gap:1rem;flex-wrap:wrap}
+        .social-links a{background:var(--secondary);padding:.5rem 1rem;border-radius:20px;font-size:.9rem}
+        .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.2);opacity:.7}
+        .back-to-top{position:fixed;bottom:20px;right:20px;background:var(--secondary);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;display:none;z-index:1000}
+        .fade-in{opacity:0;transform:translateY(20px);transition:.6s} .fade-in.visible{opacity:1;transform:none}
+        @media(max-width:768px){body{padding-top:120px} .search-box{top:120px}}
+    </style>
+</head>
+<body>
+<header>
+    <h1>🥗 Complete Nutrition Guide</h1>
+    <p>Deep science & practical food lists for every age & lifestyle</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#children">👶 Children (1-12)</a></li>
+        <li><a href="#adults">🧑 Adults (20-60)</a></li>
+        <li><a href="#women">👩 Pregnancy</a></li>
+        <li><a href="#seniors">👴 Seniors (60+)</a></li>
+        <li><a href="#athletes">🏋️‍♂️ Athletes</a></li>
+        <li><a href="#vitamins-deep-dive">🧪 Deep Science</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search nutrients or foods…">
+    </div>
+
+    <!-- Children -->
+    <section id="children" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('children-content')">
+            <span class="category-icon">👶</span>
+            <div><h2>Children (1–12 years)</h2><p>Building blocks for healthy growth</p></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="children-content">
+            <p>During 1-12 years, bones lengthen, neurons wire, and immunity is built. Target these nutrients daily:</p>
+            <div class="nutrient-grid">
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Calcium</div>
+                    <div class="nutrient-desc">700-1 300 mg/day to mineralize bone and teeth. Also aids muscle contraction and nerve signaling.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥛">Milk (300 mg/cup)</span>
+                        <span class="food-item" data-emoji="🥣">Yogurt (415 mg/cup)</span>
+                        <span class="food-item" data-emoji="🧀">Cheddar (200 mg/oz)</span>
+                        <span class="food-item" data-emoji="🧆">Tofu (250 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🥬">Spinach cooked (100 mg/½ cup)</span>
+                    </div>
+                </div>
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Iron</div>
+                    <div class="nutrient-desc">7-10 mg/day to carry oxygen and build brain cells. Deficiency → fatigue & learning issues.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥩">Beef (2 mg/3 oz)</span>
+                        <span class="food-item" data-emoji="🫘">Lentils (3 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🥣">Iron-fortified cereal (18 mg/serving)</span>
+                        <span class="food-item" data-emoji="🥚">Eggs (0.7 mg/1)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adults -->
+    <section id="adults" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('adults-content')">
+            <span class="category-icon">🧑</span>
+            <div><h2>Adults (20–60 years)</h2><p>Peak performance & chronic-disease prevention</p></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="adults-content">
+            <div class="nutrient-grid">
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Magnesium</div>
+                    <div class="nutrient-desc">400-420 mg/day for 300+ enzymatic reactions, muscle relaxation & sleep quality.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥜">Pumpkin seeds (150 mg/oz)</span>
+                        <span class="food-item" data-emoji="🌾">Quinoa (60 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🥬">Spinach (78 mg/½ cup cooked)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pregnancy -->
+    <section id="women" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('women-content')">
+            <span class="category-icon">👩</span>
+            <div><h2>Women (Pregnancy/Breastfeeding)</h2></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="women-content">
+            <div class="nutrient-grid">
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Folic Acid</div>
+                    <div class="nutrient-desc">400-800 µg/day prevents neural-tube defects. Critical first 4 weeks.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥬">Spinach (115 µg/½ cup)</span>
+                        <span class="food-item" data-emoji="🍊">Orange juice (35 µg/cup)</span>
+                        <span class="food-item" data-emoji="🥣">Fortified cereal (400 µg/serving)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seniors -->
+    <section id="seniors" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('seniors-content')">
+            <span class="category-icon">👴</span>
+            <div><h2>Older Adults (60+ years)</h2></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="seniors-content">
+            <div class="nutrient-grid">
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin B12</div>
+                    <div class="nutrient-desc">2.4 µg/day; absorption drops with age—supplements often needed.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🐟">Salmon (2.6 µg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥣">Fortified cereal (6 µg/serving)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Athletes -->
+    <section id="athletes" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('athletes-content')">
+            <span class="category-icon">🏋️‍♂️</span>
+            <div><h2>Active Individuals & Athletes</h2></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="athletes-content">
+            <div class="nutrient-grid">
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Protein</div>
+                    <div class="nutrient-desc">1.2-2.0 g/kg body weight daily to repair and build muscle.</div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🍗">Chicken (26 g/3 oz)</span>
+                        <span class="food-item" data-emoji="🥚">Eggs (6 g/1 large)</span>
+                        <span class="food-item" data-emoji="🥤">Whey shake (25 g/scoop)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep-dive vitamins & minerals -->
+    <section id="vitamins-deep-dive" class="category fade-in">
+        <div class="category-header" onclick="toggleSection('vitamins-deep-content')">
+            <span class="category-icon">🧪</span>
+            <div><h2>Vitamins, Minerals & Super-Foods (Deep Science)</h2></div>
+            <button class="expand-btn">▼</button>
+        </div>
+        <div id="vitamins-deep-content">
+            <div class="nutrient-grid">
+                <!-- Vitamin A -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin A (Retinoids & Carotenoids)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Vision, immune defence, epithelial repair, gene regulation.<br>
+                        <strong>RDA:</strong> 900 µg (men) / 700 µg (women) / 300-600 µg (kids).<br>
+                        <strong>Deficiency:</strong> Night-blindness, dry eyes, frequent infections.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥕">Carrots (835 µg/½ cup)</span>
+                        <span class="food-item" data-emoji="🍠">Sweet potato (1 150 µg/1 med)</span>
+                        <span class="food-item" data-emoji="🥬">Spinach (573 µg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🐟">Salmon (149 µg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥚">Egg yolk (75 µg/1 large)</span>
+                    </div>
+                </div>
+
+                <!-- Vitamin B12 -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin B12 (Cobalamins)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> DNA synthesis, myelin repair, red-blood-cell maturation.<br>
+                        <strong>RDA:</strong> 2.4 µg adults / 2.6-2.8 µg pregnancy-lactation.<br>
+                        <strong>Deficiency:</strong> Neuropathy, memory loss, macrocytic anemia.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥩">Clams (84 µg/3 oz)</span>
+                        <span class="food-item" data-emoji="🐟">Sardines (7.6 µg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥩">Beef (2.1 µg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥛">Fortified soy milk (3 µg/1 cup)</span>
+                    </div>
+                </div>
+
+                <!-- Vitamin C -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin C (Ascorbic Acid)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Collagen, antioxidant, immune support, iron absorption.<br>
+                        <strong>RDA:</strong> 90 mg (men) / 75 mg (women) / +35 mg for smokers.<br>
+                        <strong>Deficiency:</strong> Scurvy, bleeding gums, poor wound healing.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🍊">Orange (70 mg/1 medium)</span>
+                        <span class="food-item" data-emoji="🍓">Strawberries (85 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🫑">Red bell pepper (95 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🥦">Broccoli (51 mg/½ cup cooked)</span>
+                    </div>
+                </div>
+
+                <!-- Vitamin D -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin D (Calciferol)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Calcium balance, bone mineralization, immune modulation.<br>
+                        <strong>RDA:</strong> 600 IU (1-70 yrs) / 800 IU (>70 yrs).<br>
+                        <strong>Deficiency:</strong> Rickets, osteomalacia, fractures.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🐟">Wild salmon (570 IU/3 oz)</span>
+                        <span class="food-item" data-emoji="🥛">Fortified milk (115 IU/1 cup)</span>
+                        <span class="food-item" data-emoji="🍳">Egg yolk (40 IU/1 large)</span>
+                        <span class="food-item" data-emoji="☀️">Midday sun (15 min arms/legs)</span>
+                    </div>
+                </div>
+
+                <!-- Vitamin E -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin E (Tocopherols)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Lipid-soluble antioxidant, cell-membrane protection, anti-inflammatory.<br>
+                        <strong>RDA:</strong> 15 mg (22 IU) adults.<br>
+                        <strong>Deficiency:</strong> Peripheral neuropathy, hemolytic anemia.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🌰">Almonds (7 mg/oz)</span>
+                        <span class="food-item" data-emoji="🌻">Sunflower seeds (7 mg/oz)</span>
+                        <span class="food-item" data-emoji="🥑">Avocado (2 mg/½ med)</span>
+                        <span class="food-item" data-emoji="🌾">Wheat-germ oil (20 mg/tbsp)</span>
+                    </div>
+                </div>
+
+                <!-- Vitamin K -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Vitamin K (Phylloquinone & Menaquinones)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Blood clotting, bone protein carboxylation.<br>
+                        <strong>RDA:</strong> 120 µg (men) / 90 µg (women).<br>
+                        <strong>Deficiency:</strong> Easy bruising, prolonged bleeding.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥬">Kale (550 µg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🥬">Spinach (440 µg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🥦">Broccoli (110 µg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🥗">Natto (850 µg/2 tbsp)</span>
+                    </div>
+                </div>
+
+                <!-- Calcium -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Calcium</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Skeletal integrity, muscle contraction, nerve impulses.<br>
+                        <strong>RDA:</strong> 1 000 mg (19-50 yrs) / 1 200 mg (women >50, men >70) / 1 300 mg (teens).<br>
+                        <strong>Enhancers:</strong> Vitamin D, lactose. <strong>Inhibitors:</strong> Phytates, oxalates.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥛">Yogurt (415 mg/1 cup)</span>
+                        <span class="food-item" data-emoji="🥛">Milk (300 mg/1 cup)</span>
+                        <span class="food-item" data-emoji="🧀">Cheddar (200 mg/oz)</span>
+                        <span class="food-item" data-emoji="🧆">Calcium-set tofu (250 mg/½ cup)</span>
+                        <span class="food-item" data-emoji="🐟">Sardines with bones (325 mg/3 oz)</span>
+                    </div>
+                </div>
+
+                <!-- Iron -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Iron (Heme & Non-heme)</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Hemoglobin oxygen transport, DNA synthesis.<br>
+                        <strong>RDA:</strong> 8 mg (men) / 18 mg (women 19-50) / 27 mg (pregnancy).<br>
+                        <strong>Tip:</strong> Pair non-heme sources with vitamin C for 3-4× absorption.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥩">Clams (8 mg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥩">Beef (2 mg/3 oz)</span>
+                        <span class="food-item" data-emoji="🫘">Lentils (3 mg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🥣">Iron-fortified cereal (18 mg/serving)</span>
+                    </div>
+                </div>
+
+                <!-- Magnesium -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Magnesium</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> 300+ enzymatic reactions, ATP, muscle relaxation, sleep.<br>
+                        <strong>RDA:</strong> 400-420 mg (men) / 310-320 mg (women).<br>
+                        <strong>Deficiency:</strong> Cramps, arrhythmias, migraine.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥜">Pumpkin seeds (150 mg/oz)</span>
+                        <span class="food-item" data-emoji="🌾">Quinoa (60 mg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🥬">Spinach (78 mg/½ cup cooked)</span>
+                        <span class="food-item" data-emoji="🫘">Black beans (60 mg/½ cup)</span>
+                    </div>
+                </div>
+
+                <!-- Potassium -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Potassium</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> Fluid balance, nerve impulses, blood-pressure control.<br>
+                        <strong>AI:</strong> 4 700 mg/day.<br>
+                        <strong>Note:</strong> Restricted in CKD or on ACE inhibitors.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥔">Baked potato (925 mg/1 medium)</span>
+                        <span class="food-item" data-emoji="🍌">Banana (422 mg/1 medium)</span>
+                        <span class="food-item" data-emoji="🥑">Avocado (975 mg/1 medium)</span>
+                        <span class="food-item" data-emoji="🫘">White beans (595 mg/½ cup)</span>
+                    </div>
+                </div>
+
+                <!-- Zinc -->
+                <div class="nutrient-card">
+                    <div class="nutrient-name">Zinc</div>
+                    <div class="nutrient-desc">
+                        <strong>Functions:</strong> DNA synthesis, immunity, wound healing, taste & smell.<br>
+                        <strong>RDA:</strong> 11 mg (men) / 8 mg (women) / 11-12 mg (pregnancy-lactation).<br>
+                        <strong>Plant caveat:</strong> Phytates reduce absorption—soak/sprout/ferment.
+                    </div>
+                    <div class="food-list">
+                        <span class="food-item" data-emoji="🥩">Oysters (74 mg/3 oz)</span>
+                        <span class="food-item" data-emoji="🥩">Beef (7 mg/3 oz)</span>
+                        <span class="food-item" data-emoji="🌰">Cashews (2 mg/oz)</span>
+                        <span class="food-item" data-emoji="🥣">Fortified cereal (2-4 mg/serving)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About This Guide</h3>
+                <p>Evidence-based nutrition science distilled into practical food lists for every life stage.</p>
+                <div class="social-links">
+                    <a href="#">📱 Twitter</a>
+                    <a href="#">📘 Facebook</a>
+                    <a href="#">📸 Instagram</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#children">Children</a></li>
+                    <li><a href="#adults">Adults</a></li>
+                    <li><a href="#women">Pregnancy</a></li>
+                    <li><a href="#seniors">Seniors</a></li>
+                    <li><a href="#athletes">Athletes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Important Notes</h3>
+                <ul>
+                    <li>Consult a healthcare professional for personal advice.</li>
+                    <li>RDAs may differ by country; always verify local guidelines.</li>
+                    <li>Food values are approximate; check labels for accuracy.</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact & Support</h3>
+                <p>📧 nutrition@guide*com</p>
+                <p>📞 1-800-NUTRITION</p>
+                <p>🕒 Mon–Fri 9 AM–5 PM EST</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Complete Nutrition Guide | Always verify with qualified professionals</p>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+    // Toggle sections
+    function toggleSection(id){
+        const box=document.getElementById(id);
+        const btn=box.previousElementSibling.querySelector('.expand-btn');
+        box.classList.toggle('hidden');
+        btn.classList.toggle('rotated');
+    }
+
+    // Search
+    document.querySelector('.search-input').addEventListener('input',e=>{
+        const t=e.target.value.toLowerCase();
+        document.querySelectorAll('.nutrient-card').forEach(c=>{
+            c.style.display=c.textContent.toLowerCase().includes(t)?'block':'none';
+        });
+    });
+
+    // Active nav + smooth scroll
+    document.querySelectorAll('nav a').forEach(a=>{
+        a.addEventListener('click',e=>{
+            e.preventDefault();
+            const tgt=document.querySelector(a.getAttribute('href'));
+            tgt.scrollIntoView({behavior:'smooth',block:'start'});
+            document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
+            a.classList.add('active');
+        });
+    });
+
+    // Back-to-top visibility
+    window.addEventListener('scroll',()=>{
+        document.querySelector('.back-to-top').style.display=window.scrollY>300?'block':'none';
+    });
+
+    // Fade-in observer
+    const io=new IntersectionObserver(entries=>{
+        entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible'));
+    },{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+    // Expand on load
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelectorAll('[id$="-content"]').forEach(c=>c.classList.remove('hidden'));
+    });
+</script>
+</body>
+</html>
